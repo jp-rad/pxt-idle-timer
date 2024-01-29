@@ -2,6 +2,9 @@
 
 MicroBitCustomTimer::MicroBitCustomTimer()
 {
+    // idle component ID
+    id = IDLETIMER_ID_STARTSTOP;
+    // initialize timer objects
     for (int idx = 0; idx < IDLE_TIMER_NUM; idx++)
     {
         Timer &t = timer[idx];
@@ -121,6 +124,27 @@ int MicroBitCustomTimer::resume(int id)
     t.turningTimestamp = currentTime;
     t.status = TimerStatus::Started;
     return 0; // success
+}
+
+int MicroBitCustomTimer::change(int id, uint64_t timeout_us)
+{
+    uint64_t currentTime = system_timer_current_time_us();
+    int idx = convIdx(id);
+    if (0 > idx)
+    {
+        return -1; // error
+    }
+    Timer &t = timer[idx];
+    if (0 < t.timeout_us)
+    {
+        t.timeoutTimestamp = t.timeoutTimestamp - t.timeout_us + timeout_us;
+        t.timeout_us = timeout_us;
+        return 0; // success
+    }
+    else
+    {
+        return 1; // no timeout
+    }
 }
 
 MicroBitCustomTimer::TimerStatus MicroBitCustomTimer::getStatus(int id)

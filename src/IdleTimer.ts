@@ -31,7 +31,7 @@ namespace idletimer {
      * @param interval_ms interval (ms)
      * @returns param to start
      */
-    //% block="interval (ms) $interval_ms"
+    //% block="interval(ms) $interval_ms"
     //% block.loc.ja="インターバル(ミリ秒) $interval_ms"
     //% toolboxParent=idletimer_timerargs_start
     //% toolboxParentArgument=args
@@ -48,7 +48,7 @@ namespace idletimer {
      * @param timeout_ms timeout (ms)
      * @returns param to start
      */
-    //% block="timeout $timeout_ms (ms)"
+    //% block="timeout(ms) $timeout_ms"
     //% block.loc.ja="タイムアウト(ミリ秒) $timeout_ms"
     //% toolboxParent=idletimer_timerargs_start
     //% toolboxParentArgument=args
@@ -168,6 +168,43 @@ namespace idletimer {
             t.timeoutTimestamp = t.timeoutTimestamp + pausedTime
         }
         t.turningTimestamp = currentTime
+    }
+
+    /**
+     * change timeout if timeout is set
+     * @param timer timer id
+     * @param timeout_ms timeout(ms)
+     */
+    //% block="change $timer timeout(ms) $timeout_ms"
+    //% block.loc.ja="変更する $timer タイムアウト(ミリ秒) $timeout_ms"
+    //% timeout_ms.shadow="timePicker"
+    //% timeout_ms.defl=5000
+    //% timeout_ms.min=0
+    //% weight=105
+    //% shim=idletimer::change
+    export function change(timer: IdleTimer, timeout_ms: number) {
+        // for the simulator
+        const currentTime = control.millis()
+        // resume
+        const timers: any[] = simu.timers
+        if (!timers) {
+            return
+        }
+        let t: any
+        for (const v of timers) {
+            if (timer == v.id) {
+                // hit
+                t = v
+                break
+            }
+        }
+        if (!t) {
+            return
+        }
+        if (0 < t.timeout_us) {
+            t.timeoutTimestamp = t.timeoutTimestamp - t.timeout_us + timeout_ms
+            t.timeout_us = timeout_ms
+        }
     }
 
     /**
