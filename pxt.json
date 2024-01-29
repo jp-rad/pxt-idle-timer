@@ -1,7 +1,7 @@
 {
-    "name": "pxt-ubit-extension",
-    "version": "0.4.0",
-    "description": "(description: this description is written in pxt.json)",
+    "name": "pxt-idle-timer",
+    "version": "0.1.0",
+    "description": "The idle timer generates interval and timeout events while measuring elapsed time.",
     "dependencies": {
         "core": "*"
     },
@@ -9,10 +9,11 @@
         "README.md",
         "enums.d.ts",
         "shims.d.ts",
-        "src/custom.ts",
-        "src/custom.cpp",
-        "src/customlib.h",
-        "src/customlib.cpp"
+        "inc/CustomMicroBit.h",
+        "src/IdleTimer.ts",
+        "src/IdleTimer.cpp",
+        "src/MicroBitTimer.h",
+        "src/MicroBitTimer.cpp"
     ],
     "testFiles": [
         "test/test.ts"
