@@ -69,7 +69,7 @@ namespace idletimer {
     //% interval_ms.defl=1000
     //% interval_ms.min=0
     //% timeout_ms.shadow="timePicker"
-    //% timeout_ms.defl=100000
+    //% timeout_ms.defl=5000
     //% timeout_ms.min=0
     //% weight=140
     /**
