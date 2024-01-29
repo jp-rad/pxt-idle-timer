@@ -1,6 +1,6 @@
 {
     "name": "pxt-idle-timer",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "The idle timer generates interval and timeout events while measuring elapsed time.",
     "dependencies": {
         "core": "*"
