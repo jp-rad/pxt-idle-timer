@@ -2,7 +2,18 @@
 #define MICROBITTIMER_H
 
 #include "pxt.h"
-#include "../inc/CustomMicroBit.h"
+#include "MicroBitFiber.h"
+
+/**
+ * Status flags
+ * Universal flags used as part of the status field
+ */
+#ifndef MICROBIT_COMPONENT_RUNNING
+#define MICROBIT_COMPONENT_RUNNING 0x01
+#endif
+#ifndef CUSTOM_COMPONENT_ADDED_TO_IDLE
+#define CUSTOM_COMPONENT_ADDED_TO_IDLE 0x02
+#endif
 
 /**
  * Timer 1,2,3
@@ -20,6 +31,27 @@ enum IdleTimer
 
 // number of idle timer
 #define IDLE_TIMER_NUM 3
+
+/**
+ * micro:bit Message Bus ID of listener : 1-65535
+ * Custom Message Bus ID : 32768-65535
+ * https://github.com/jp-rad/pxt-ubit-extension/blob/master/doc/CustomMicroBit.h 
+ */
+enum IDLETIMER_BUS_ID
+{
+        /**
+         * Idle-Timer Interval Event Bus ID.
+         * (32768 + 1024 + 9 = 33801)
+         */
+        IDLETIMER_ID_INTERVAL = 33801,
+        /**
+         * Idle-Timer Timeout Event Bus ID.
+         * (32768 + 1024 + 10 = 33802)
+         */
+        IDLETIMER_ID_TIMEOUT = 33802,
+        // https://github.com/jp-rad/pxt-idle-timer/
+        
+};
 
 class MicroBitCustomTimer : public MicroBitComponent
 {

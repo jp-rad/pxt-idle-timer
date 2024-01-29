@@ -53,7 +53,7 @@ namespace idletimer {
     //% toolboxParent=idletimer_timerargs_start
     //% toolboxParentArgument=args
     //% timeout_ms.shadow="timePicker"
-    //% timeout_ms.defl=100000
+    //% timeout_ms.defl=5000
     //% timeout_ms.min=0
     //% weight=150
     export function TimeoutTimerArgs(timeout_ms: number): TimerArgs {
@@ -69,7 +69,7 @@ namespace idletimer {
     //% interval_ms.defl=1000
     //% interval_ms.min=0
     //% timeout_ms.shadow="timePicker"
-    //% timeout_ms.defl=100000
+    //% timeout_ms.defl=5000
     //% timeout_ms.min=0
     //% weight=140
     /**
@@ -220,7 +220,7 @@ namespace idletimer {
                 body()
             }
         }
-        control.onEvent(CUSTOM_BUS_ID.CUSTOM_EVENT_ID_IDLETIMER_INTERVAL, timer, handler, EventFlags.DropIfBusy)
+        control.onEvent(IDLETIMER_BUS_ID.IDLETIMER_ID_INTERVAL, timer, handler, EventFlags.DropIfBusy)
     }
 
     /**
@@ -232,7 +232,7 @@ namespace idletimer {
     //% block.loc.ja="タイムアウトが発生したとき $timer"
     //% weight=60
     export function onTimeout(timer: IdleTimer, body: () => void) {
-        control.onEvent(CUSTOM_BUS_ID.CUSTOM_EVENT_ID_IDLETIMER_TIMEOUT, timer, body, EventFlags.QueueIfBusy)
+        control.onEvent(IDLETIMER_BUS_ID.IDLETIMER_ID_TIMEOUT, timer, body, EventFlags.QueueIfBusy)
     }
 
     /**
@@ -260,7 +260,7 @@ namespace idletimer {
                         // timeouted
                         t.status = TimerStatus.Timeouted
                         t.elapsed_us = t.timeout_us
-                        control.raiseEvent(CUSTOM_BUS_ID.CUSTOM_EVENT_ID_IDLETIMER_TIMEOUT, t.id)
+                        control.raiseEvent(IDLETIMER_BUS_ID.IDLETIMER_ID_TIMEOUT, t.id)
                         continue
                     }
                     if ((0 < t.interval_us) && (currentTime >= t.intervalTimestamp)) {
@@ -268,7 +268,7 @@ namespace idletimer {
                         t.intervalTimestamp = t.intervalTimestamp + t.interval_us
                         if (currentTime < t.intervalTimestamp) {
                             // idle if not busy
-                            control.raiseEvent(CUSTOM_BUS_ID.CUSTOM_EVENT_ID_IDLETIMER_INTERVAL, t.id)
+                            control.raiseEvent(IDLETIMER_BUS_ID.IDLETIMER_ID_INTERVAL, t.id)
                         }
                     }
                 }
