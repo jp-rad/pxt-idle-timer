@@ -1,6 +1,6 @@
 {
     "name": "pxt-idle-timer",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "The idle timer generates interval and timeout events while measuring elapsed time.",
     "dependencies": {
         "core": "*"
@@ -9,7 +9,6 @@
         "README.md",
         "enums.d.ts",
         "shims.d.ts",
-        "inc/CustomMicroBit.h",
         "src/IdleTimer.ts",
         "src/IdleTimer.cpp",
         "src/MicroBitTimer.h",

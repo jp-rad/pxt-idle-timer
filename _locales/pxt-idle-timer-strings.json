@@ -1,8 +1,6 @@
 {
-  "CUSTOM_BUS_ID.CUSTOM_EVENT_ID_IDLETIMER_INTERVAL": "Idle-Timer Interval Event Bus ID.\n(32768 + 1024 + 9 = 33801)",
-  "CUSTOM_BUS_ID.CUSTOM_EVENT_ID_IDLETIMER_TIMEOUT": "Idle-Timer Timeout Event Bus ID.\n(32768 + 1024 + 10 = 33802)",
-  "CUSTOM_BUS_ID.CUSTOM_EVENT_ID_MSTATE_UPDATE": "MState Update Event Bus ID.\n(32768 + 1024 + 5 = 33797)",
-  "CUSTOM_BUS_ID.CUSTOM_EVENT_ID_S3LINK_UDK": "S3Link UDK Event Bus ID.\n(32768 + 1024 + 1 = 33793)",
+  "IDLETIMER_BUS_ID.IDLETIMER_ID_INTERVAL": "Idle-Timer Interval Event Bus ID.\n(32768 + 1024 + 9 = 33801)",
+  "IDLETIMER_BUS_ID.IDLETIMER_ID_TIMEOUT": "Idle-Timer Timeout Event Bus ID.\n(32768 + 1024 + 10 = 33802)",
   "IdleTimer.Timer1|block": "Timer1",
   "IdleTimer.Timer2|block": "Timer2",
   "IdleTimer.Timer3|block": "Timer3",

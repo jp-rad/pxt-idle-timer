@@ -168,7 +168,7 @@ void MicroBitCustomTimer::idleUpdate()
             // timeouted
             t.status = TimerStatus::Timeouted;
             t.elapsed_us = t.timeout_us;
-            MicroBitEvent(CUSTOM_EVENT_ID_IDLETIMER_TIMEOUT, t.id);
+            MicroBitEvent(IDLETIMER_ID_TIMEOUT, t.id);
             continue;
         }
         if (currentTime >= t.intervalTimestamp)
@@ -178,7 +178,7 @@ void MicroBitCustomTimer::idleUpdate()
             if (currentTime < t.intervalTimestamp)
             {
                 // if not busy
-                MicroBitEvent(CUSTOM_EVENT_ID_IDLETIMER_INTERVAL, t.id);
+                MicroBitEvent(IDLETIMER_ID_INTERVAL, t.id);
             }
         }
     }
