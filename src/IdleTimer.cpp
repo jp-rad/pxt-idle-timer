@@ -43,6 +43,13 @@ namespace idletimer
     }
 
     //%
+    void change(int timer, int timeout_ms)
+    {
+        init();
+        _pIdleTimer->change(timer, (uint64_t)timeout_ms * 1000);
+    }
+
+    //%
     int getMillis(int timer)
     {
         init();
