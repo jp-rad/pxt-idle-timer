@@ -1,0 +1,22 @@
+{
+  "CUSTOM_BUS_ID.CUSTOM_EVENT_ID_IDLETIMER_INTERVAL": "Idle-Timer Interval Event Bus ID.\n(32768 + 1024 + 9 = 33801)",
+  "CUSTOM_BUS_ID.CUSTOM_EVENT_ID_IDLETIMER_TIMEOUT": "Idle-Timer Timeout Event Bus ID.\n(32768 + 1024 + 10 = 33802)",
+  "CUSTOM_BUS_ID.CUSTOM_EVENT_ID_MSTATE_UPDATE": "MState Update Event Bus ID.\n(32768 + 1024 + 5 = 33797)",
+  "CUSTOM_BUS_ID.CUSTOM_EVENT_ID_S3LINK_UDK": "S3Link UDK Event Bus ID.\n(32768 + 1024 + 1 = 33793)",
+  "IdleTimer.Timer1|block": "Timer1",
+  "IdleTimer.Timer2|block": "Timer2",
+  "IdleTimer.Timer3|block": "Timer3",
+  "idletimer.IntervalTimeoutTimerArgs|block": "interval(ms) $interval_ms|timeout(ms) $timeout_ms",
+  "idletimer.IntervalTimerArgs|block": "interval (ms) $interval_ms",
+  "idletimer.TimeoutTimerArgs|block": "timeout $timeout_ms (ms)",
+  "idletimer.isRunning|block": "is running $timer",
+  "idletimer.isTimeouted|block": "is timeouted $timer",
+  "idletimer.millis|block": "millis (ms) $timer",
+  "idletimer.onInterval|block": "on interval $timer",
+  "idletimer.onTimeout|block": "on timeouted $timer",
+  "idletimer.resume|block": "resume $timer",
+  "idletimer.start|block": "start $timer $args",
+  "idletimer.stop|block": "stop $timer",
+  "idletimer|block": "Idle Timer",
+  "{id:category}Idletimer": "Idletimer"
+}
